@@ -11,7 +11,7 @@ public class HomeworkM7Driver {
 		return qNotFollowedByUHelper(lowerCaseWord, index);
 	}
 
-	public static boolean qNotFollowedByUHelper(String word, int index) {
+	private static boolean qNotFollowedByUHelper(String word, int index) {
 		if (word.charAt(index) == 'q') {
 			if (index == word.length() - 1) {
 				return true;
@@ -32,7 +32,7 @@ public class HomeworkM7Driver {
 		}
 	}
 
-	public static void arrayReverseHelper(int[] array, int index) {
+	private static void arrayReverseHelper(int[] array, int index) {
 		int temp = array[index];
 		array[index] = array[(array.length - 1) - index];
 		array[(array.length - 1) - index] = temp;
