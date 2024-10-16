@@ -42,8 +42,14 @@ public class HomeworkM7Driver {
 	}
 
 	public static int countPositives(Multiset<Integer> set) {
-		// YOUR EXTRA CREDIT CODE HERE
-		return 0; // placeholder: delete and replace when you write your own method
+		if (set.isEmpty()) {
+			return 0;
+		}
+
+		int temp = set.remove();
+		int count = (temp > 0 ? 1 : 0) + countPositives(set);
+		set.add(temp);
+		return count;
 	}
 	
 	private static boolean allTestsPassed = true; 
