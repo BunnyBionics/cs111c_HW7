@@ -3,12 +3,42 @@ import java.util.*;
 public class HomeworkM7Driver {
 
 	public static boolean qNotFollowedByU(String word) {
-		// YOUR CODE HERE
-		return false; // placeholder: delete and replace when you write your own method
+		if (word.isEmpty()) {
+			return false;
+		}
+		int index = 0;
+		String lowerCaseWord = word.toLowerCase();
+		return qNotFollowedByUHelper(lowerCaseWord, index);
+	}
+
+	public static boolean qNotFollowedByUHelper(String word, int index) {
+		if (word.charAt(index) == 'q') {
+			if (index == word.length() - 1) {
+				return true;
+			} else if (word.charAt(index + 1) != 'u') {
+				return true;
+			}
+		}
+		if (index == word.length() - 1) {
+			return false;
+		}
+		return qNotFollowedByUHelper(word, index + 1);
 	}
 
 	public static void arrayReverse(int[] array) {
-		// YOUR CODE HERE
+		if (array.length > 1) {
+			int index = (array.length / 2) - 1;
+			arrayReverseHelper(array, index);
+		}
+	}
+
+	public static void arrayReverseHelper(int[] array, int index) {
+		int temp = array[index];
+		array[index] = array[(array.length - 1) - index];
+		array[(array.length - 1) - index] = temp;
+		if (index > 0) {
+			arrayReverseHelper(array, index - 1);
+		}
 	}
 
 	public static int countPositives(Multiset<Integer> set) {
